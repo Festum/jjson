@@ -4,9 +4,9 @@ except ImportError:
     from distutils.core import setup
 
 PACKAGE = 'jjson'
-VERSION = '0.0.1'
+VERSION = '0.0.3'
 
-install_requires = ['re', 'json']
+install_requires = []
 
 def main():
     setup(
@@ -16,13 +16,13 @@ def main():
 		long_description=open('README.rst').read(),
         url='https://github.com/festum/jjson',
         author='Festum Qin',
-        author_email='f@fe0.in',
+        author_email='festum@g.pl',
         license='MIT',
         py_modules='jjson',
         install_requires=install_requires,
 		platforms='any',
 		classifiers=[
-			'Development Status :: v0.0.1',
+			'Development Status :: 4 - Beta',
 			'Intended Audience :: Developers',
 			'License :: OSI Approved :: MIT License',
 			'Operating System :: OS Independent',

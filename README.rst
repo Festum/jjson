@@ -14,15 +14,15 @@ Example Usage
 	import jjson
 
 	# Get string from nested JSON
-    j = {
+	j = {
 		"foo": {
 			"bar": {
 				"test": "hello world"
 			}
 		}
 	}
-    p = "foo.bar.test"
-    print jjson.extract(j, p)
+	p = "foo.bar.test"
+	print jjson.extract(j, p)
 	# hello world
 
 
@@ -33,15 +33,16 @@ The latest stable version can always be installed or updated via pip:
 
 .. code-block:: bash
 
-    $ pip install git+https://github.com/festum/jjson.git
+	$ pip install git+https://github.com/festum/jjson.git
 
 	# Alternative
-    $ pip install jjson
+	$ pip install jjson
 
 
 TODO
 -------
 - CLI
+- Test case
 - Change value from certain node
 
 
