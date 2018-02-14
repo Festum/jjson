@@ -12,16 +12,25 @@ def extract(obj, path, delimiter='.'):
         obj = json.loads(obj)
     if type(obj) is not dict:
         raise ValueError('Invalid json')
-    return parse(obj, path.split(delimiter))
+    if delimiter: # delimiter = None for parse basename only
+        path = path.split(delimiter)
+    return parse(obj, path)
 
 def parse(content, nodes, deep=0):
+    out = ''
     if len (content.keys()) > 0:
         for k, v in content.iteritems():
-            if k==nodes[deep]:
-                if len(nodes)-1 == deep:
-                    return v
+            if type(nodes) is list:
+                if k==nodes[deep]:
+                    if len(nodes)-1 == deep:
+                        return v
+                    if type(v) is dict:
+                        return parse(v, nodes, deep+1)
+                elif deep > len(nodes)-1:
+                    break
+            else:
+                if k==nodes:
+                    out = v
                 if type(v) is dict:
                     return parse(v, nodes, deep+1)
-            elif deep > len(nodes)-1:
-                break
-    return
+    return out
