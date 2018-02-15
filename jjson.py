@@ -44,3 +44,7 @@ def flatten(content, key='', delimiter='.', out={}):
                 v = ', '.join(str(e) for e in v)
             out['{}{}'.format(key+delimiter if key else '',k)] = v
     return out
+
+def basename(str, delimiter='.'):
+    str = str.split(delimiter)
+    return str[len(str)-1]
