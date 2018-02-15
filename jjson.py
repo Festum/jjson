@@ -34,3 +34,13 @@ def parse(content, nodes, deep=0):
                 if type(v) is dict:
                     return parse(v, nodes, deep+1)
     return out
+
+def flatten(content, key='', out={}):
+    for k, v in content.iteritems():
+        if type(v) is dict:
+            out.update(flatten(v, '{}{}'.format(key+'/' if key else '',k)))
+        else:
+            if type(v) is list:
+                v = ', '.join(str(e) for e in v)
+            out['{}{}'.format(key+'/' if key else '',k)] = v
+    return out
